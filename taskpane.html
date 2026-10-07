@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request Tracker</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="tabs" role="tablist">
+      <button class="tab" data-view="email" role="tab">This email</button>
+      <button class="tab" data-view="list" role="tab">Requests <span class="badge" id="overdueBadge" hidden></span></button>
+      <button class="tab" data-view="settings" role="tab" aria-label="Settings">Settings</button>
+    </nav>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  <div id="toast" class="toast" hidden></div>
+  <script src="taskpane.js"></script>
+</body>
+</html>

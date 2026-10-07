@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+           xsi:type="MailApp">
+  <Id>e075ecb4-7230-4a97-a066-d64dd544786b</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Andrei</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Request Tracker"/>
+  <Description DefaultValue="Track client requests and supplier quote requests, with follow-up reminders."/>
+  <IconUrl DefaultValue="{{BASE}}/assets/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="{{BASE}}/assets/icon-128.png"/>
+  <SupportUrl DefaultValue="{{BASE}}/"/>
+  <AppDomains>
+    <AppDomain>{{ORIGIN}}</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.5"/>
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="{{BASE}}/taskpane.html"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.5">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="rtReadGroup">
+                  <Label resid="GroupLabel"/>
+                  <Control xsi:type="Button" id="rtOpenPaneButton">
+                    <Label resid="PaneButton.Label"/>
+                    <Supertip>
+                      <Title resid="PaneButton.Label"/>
+                      <Description resid="PaneButton.Tooltip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16"/>
+                      <bt:Image size="32" resid="Icon.32"/>
+                      <bt:Image size="80" resid="Icon.80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="Pane.Url"/>
+                      <SupportsPinning>true</SupportsPinning>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon.16" DefaultValue="{{BASE}}/assets/icon-16.png"/>
+          <bt:Image id="Icon.32" DefaultValue="{{BASE}}/assets/icon-32.png"/>
+          <bt:Image id="Icon.80" DefaultValue="{{BASE}}/assets/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="Pane.Url" DefaultValue="{{BASE}}/taskpane.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Request Tracker"/>
+          <bt:String id="PaneButton.Label" DefaultValue="Track request"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="PaneButton.Tooltip" DefaultValue="Track this email as a client request or supplier quote request."/>
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
