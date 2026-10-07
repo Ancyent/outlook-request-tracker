@@ -10,9 +10,10 @@
 <body>
   <header class="topbar">
     <nav class="tabs" role="tablist">
+      <button class="tab" data-view="todo" role="tab">To do <span class="badge" id="dueBadge" hidden></span></button>
       <button class="tab" data-view="email" role="tab">This email</button>
-      <button class="tab" data-view="list" role="tab">Requests <span class="badge" id="overdueBadge" hidden></span></button>
-      <button class="tab" data-view="settings" role="tab" aria-label="Settings">Settings</button>
+      <button class="tab" data-view="list" role="tab">Requests</button>
+      <button class="tab" data-view="settings" role="tab" aria-label="Settings">&#9881;</button>
     </nav>
   </header>
   <main id="app" aria-live="polite"></main>
