@@ -888,7 +888,7 @@ function viewSettings() {
       h('button', { class: 'btn sm', onclick: exportJson }, 'Export JSON'),
       h('button', { class: 'btn sm', onclick: () => fileIn.click() }, 'Import JSON'),
       fileIn)));
-  root.append(h('div', { class: 'sub', style: 'margin-top:10px' }, 'Request Tracker v0.2 · nothing is sent automatically · data stays in your mailbox'));
+  root.append(h('div', { class: 'sub', style: 'margin-top:10px' }, 'Request Tracker v0.2.1 · reminders are drafts, never sent automatically · data stays in your mailbox'));
   return root;
 }
 
